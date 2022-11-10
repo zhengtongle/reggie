@@ -37,6 +37,7 @@
         <el-button
           type="primary"
           @click="addMemberHandle('add')"
+          v-if="user === 'admin'"
         >
           + 添加员工
         </el-button>
@@ -67,6 +68,7 @@
           label="操作"
           width="160"
           align="center"
+          v-if="user === 'admin'"
         >
           <template slot-scope="scope">
             <el-button
@@ -83,7 +85,6 @@
               size="small"
               class="delBut non"
               @click="statusHandle(scope.row)"
-              v-if="user === 'admin'"
             >
               {{ scope.row.status == '1' ? '禁用' : '启用' }}
             </el-button>
